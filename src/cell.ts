@@ -93,7 +93,7 @@ class Field {
 
                 if (this.cells[i][j].isAlive == ALIVE) {
                     if (colors.length == 2 || colors.length == 3) {
-                        nextField.cells[i][j] = this.cells[i][j];
+                        nextField.cells[i][j] = new Cell(ALIVE, colors);
                     }
                     else {
                         nextField.cells[i][j].isAlive = DEAD;
