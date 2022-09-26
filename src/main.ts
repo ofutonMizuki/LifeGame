@@ -1,18 +1,12 @@
-function main(){
-    let field = new Field(32, 32);
+function main() {
+    let field = new Field(443, 443);
     let canvas = new Canvas(document.getElementById("field") as HTMLCanvasElement);
 
-    field.cells[2][2] = ALIVE;
-    field.cells[2][3] = ALIVE;
-    field.cells[2][4] = ALIVE;
-    field.cells[3][4] = ALIVE;
-    field.cells[4][3] = ALIVE;
+    for (let i = 0; i < 445; i++) {
 
-    field.cells[16][15] = ALIVE;
-    field.cells[16][16] = ALIVE;
-    field.cells[16][17] = ALIVE;
-    field.cells[17][15] = ALIVE;
-    field.cells[18][16] = ALIVE;
+        field.cells[i][0] = new Cell(ALIVE, [{ r: 255, g: 255, b: 255 }, { r: 191, g: 191, b: 191 }, { r: 127, g: 127, b: 127 }]);
+        field.cells[0][i] = new Cell(ALIVE, [{ r: 255, g: 255, b: 255 }, { r: 191, g: 191, b: 191 }, { r: 127, g: 127, b: 127 }]);
+    }
 
     setInterval(() => {
         field = field.next();

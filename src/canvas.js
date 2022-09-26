@@ -22,8 +22,10 @@ class Canvas {
                 for (let j = 0; j < field.size.x; j++) {
                     let x = j * this.size + this.offset.x;
                     let y = i * this.size + this.offset.y;
-                    if (field.cells[i + 1][j + 1]) {
-                        ctx.fillStyle = `rgb(255, 255, 255)`;
+                    let cell = field.cells[i + 1][j + 1];
+                    if (cell.isAlive == ALIVE) {
+                        let color = cell.getMaxColor();
+                        ctx.fillStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
                         ctx.fillRect(x + this.size * 0.02, y + this.size * 0.02, this.size * 0.98, this.size * 0.98);
                     }
                 }
